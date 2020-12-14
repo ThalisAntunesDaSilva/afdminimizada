@@ -38,7 +38,6 @@ public Main() {
 
         jTextFieldAlfabeto = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        jLabelEstadosInalcancaveis = new javax.swing.JLabel();
         teste = new javax.swing.JTextField();
         jEstadoBotao = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
@@ -72,8 +71,6 @@ public Main() {
         jButton3 = new javax.swing.JButton();
         jTextFieldFile = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
-        jButtonMinimizar = new javax.swing.JButton();
-        jLabelEstadosMortos = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -86,9 +83,6 @@ public Main() {
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         jLabel1.setText("Σ");
-
-        jLabelEstadosInalcancaveis.setFont(new java.awt.Font("MV Boli", 0, 12)); // NOI18N
-        jLabelEstadosInalcancaveis.setText("Estados Inalcansáveis");
 
         jEstadoBotao.setText("ADD");
         jEstadoBotao.addActionListener(new java.awt.event.ActionListener() {
@@ -195,16 +189,6 @@ public Main() {
         jLabel13.setFont(new java.awt.Font("MV Boli", 0, 12)); // NOI18N
         jLabel13.setText("COLE AQUI O CAMINHO DO ARQUIVO .txt QUE DESEJAS TESTAR");
 
-        jButtonMinimizar.setText("Minimizar");
-        jButtonMinimizar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonMinimizarActionPerformed(evt);
-            }
-        });
-
-        jLabelEstadosMortos.setFont(new java.awt.Font("MV Boli", 0, 12)); // NOI18N
-        jLabelEstadosMortos.setText("Estados Mortos");
-
         jLabel14.setFont(new java.awt.Font("MV Boli", 0, 12)); // NOI18N
         jLabel14.setText("ou ESCREVA A PALAVRA");
 
@@ -291,39 +275,27 @@ public Main() {
                         .addComponent(jButtonSalvar)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(resultado)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(resultado)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel13)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jTextFieldFile, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jButton3)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 156, Short.MAX_VALUE)
-                                .addComponent(teste, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(jButtonMinimizar)
-                                .addGap(8, 8, 8)))
+                                .addComponent(jLabel13)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTextFieldFile, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jButton3)
+                                .addGap(222, 222, 222)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(teste, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButtontesta)
                         .addGap(72, 72, 72))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 343, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(304, 304, 304))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabelEstadosMortos)
-                        .addGap(40, 40, 40)
-                        .addComponent(jLabelEstadosInalcancaveis)
-                        .addGap(44, 44, 44))))
+                .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 343, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(304, 304, 304))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addContainerGap(755, Short.MAX_VALUE)
+                    .addContainerGap(831, Short.MAX_VALUE)
                     .addComponent(jLabel14)
                     .addGap(334, 334, 334)))
         );
@@ -410,15 +382,9 @@ public Main() {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(teste, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jButtontesta, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(54, 54, 54)
-                        .addComponent(jButtonMinimizar)
-                        .addGap(6, 6, 6)))
+                        .addGap(83, 83, 83)))
                 .addComponent(resultado)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelEstadosMortos)
-                    .addComponent(jLabelEstadosInalcancaveis))
-                .addGap(75, 75, 75))
+                .addGap(101, 101, 101))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                     .addContainerGap(588, Short.MAX_VALUE)
@@ -521,10 +487,6 @@ public Main() {
         
     }//GEN-LAST:event_jButton3ActionPerformed
 
-    private void jButtonMinimizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMinimizarActionPerformed
-       
-    }//GEN-LAST:event_jButtonMinimizarActionPerformed
-
     public static void main(String args[]) {
        
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -542,7 +504,6 @@ public Main() {
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButtonEstadoFinal;
     private javax.swing.JButton jButtonEstadoInicial;
-    private javax.swing.JButton jButtonMinimizar;
     private javax.swing.JButton jButtonSalvar;
     private javax.swing.JButton jButtontesta;
     private javax.swing.JButton jEstadoBotao;
@@ -559,8 +520,6 @@ public Main() {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel jLabelEstados;
-    private javax.swing.JLabel jLabelEstadosInalcancaveis;
-    private javax.swing.JLabel jLabelEstadosMortos;
     private javax.swing.JLabel jLabelSimbolo;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;

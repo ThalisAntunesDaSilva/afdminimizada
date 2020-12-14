@@ -115,7 +115,10 @@ public class TransitionControler {
             estadosInalcancaveis.add(e);
         }
     }
-   
+   //pra todo estado que conter o simbolo, toda vez que transição tiver um simbolo
+    //se na lista de alcansaveis nao tiver o estado que recebe o simbolo encontrado
+    //então esse estado é um alncansavel e entra na lsita
+    
   public void emiteEstadosAlcancaveis() {
         inicializaEstadosInalcansaveis();
         for (Estado estadO : estado) {
@@ -123,9 +126,7 @@ public class TransitionControler {
                 if (estadO.getTransition().get(simbolo) != null) {
                     if (!estadosAlcancaveis.contains(estadO.getTransition().get(simbolo))) {
                         estadosAlcancaveis.add(estadO.getTransition().get(simbolo));
-                        estadosInalcancaveis.remove(estadO.getTransition().get(simbolo));
-
-                    }
+                     } estadosInalcancaveis.remove(estadO.getTransition().get(simbolo));
                 }
             }
         }

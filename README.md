@@ -1,4 +1,4 @@
-# Programa  que  Simula  um  AFD :computer: 
+# Simulador de AFD :computer: 
 
 ![Badge](https://img.shields.io/static/v1?label=Java&message=AFD&color=red&style=for-the-badge&logo=JAVA) 
 
@@ -10,8 +10,8 @@
 
 ## Descrição
 
-<p align="justify"> O Trabalho foi desenvolvido em java versão 8, utilizando o NetBeans IDE para implementar um programa  que  simula  um  Autômato  Finito  Determinıstico e permite reconhecer cadeias de entrada de uma determinada linguagem. O programa retorna o autômato minimizado, mostrando quais são os estados inalcançáveis e mortos.
-Em outras palavras, dada uma especificação de um AFD, é possível minimizá-lo quando os estados inúteis são removidos e/ou a combinação de estados são equivalentes.</p>
+<p align="justify"> Sistema desenvolvido em Java, utilizando o NetBeans IDE com Interface em Java Swing, onde implementar um programa  que  simula  um  Autômato  Finito  Determinıstico e permite reconhecer cadeias de entrada de uma determinada linguagem. 
+.</p>
 
 <p align="justify">A entrada do AFD será a descrição formal dele, ou seja:</p>
 
@@ -21,22 +21,14 @@ Em outras palavras, dada uma especificação de um AFD, é possível minimizá-l
 - Estado inicial;
 - Conjunto de estados finais.
 
-<p align="justify"> Após a leitura da entrada, o programa pode receber uma ou mais palavras e mostrar ́e aceita ou rejeitada pelo autômato.</p>
+<p align="justify"> Após a leitura da entrada, o programa pode receber uma palavra e mostrar se ́e aceita ou rejeitada pelo autômato.</p>
 
-## Linux - como executar o programa sem o Netbeans compilando as classes pelo terminal?
+## Getting Started
+Clone repositório em sua pasta NetbeansProjects, geralmente localizada em "Meus Documentos". Abra sua IDE e execute-o.
 
-```
-O projeto não possui nenhum binário associado para execução. Para isso, você precisará compilar todos os códigos antes de executar a aplicação. 
-Abra o terminal do linux, navegue até o diretório principal e executar os seguintes comandos:
-```
+## Executável
+Baixe a pasta compactada em "Excecutável" e a descompacte em sua máquina, é só clicar em cima que o programa irá rodar.
 
-``` 
-$ cd src
-$ javac br/ufla/dcc/lfa/automato/*.java
-$ javac br/ufla/dcc/lfa/arquivo/*.java
-$ javac br/ufla/dcc/lfa/principal/*.java
-$ java br/ufla/dcc/lfa/principal/Main <descricao-afd> <arquivo-saida-tabela> <arquivo-saida-afd-minimizado> 
-```
 ## Como Utilizar a aplicação
 1. Adicione um estado no botão Add estado
 2. Digite um símbolo e clique no botão Add símbolo
