@@ -11,12 +11,16 @@ public class TransitionControler {
     private Estado estadoInicial;
     private List<Estado> estadosFinais;
     private List<Estado> estadosAlcancaveis;
+    private List<Estado> estadosMortos;
+    private List<Estado> estadosInalcancaveis;
     
       public TransitionControler() {
         estado = new ArrayList<>();
         alfabeto = new ArrayList<>();
         estadosFinais = new ArrayList<>();
-        
+        estadosAlcancaveis = new ArrayList<>();
+        estadosMortos = new ArrayList<>();
+        estadosInalcancaveis = new ArrayList<>();
     }
 
 
@@ -112,5 +116,50 @@ public class TransitionControler {
         
 
     }
+public void emiteEstadosAlcancaveis(){
+     inicializaEstadosInalcancaveis();   
+    for(Estado estadO: estado){
+            for(String simbolo: alfabeto){
+                if(estadO.getTransition().get(simbolo) != null){
+                  if(!estadosAlcancaveis.contains(estadO.getTransition().get(simbolo))){
+                    estadosAlcancaveis.add(estadO.getTransition().get(simbolo));
+               estadosInalcancaveis.remove(estadO.getTransition().get(simbolo));
+                
+                  }}
+            }
+        }
+    }
+public void inicializaEstadoMorto(){
+    for(Estado e: estado){
+        estadosMortos.add(e);
+    }
+}
+
+public void inicializaEstadosInalcancaveis(){
+    
+    for(Estado e: estado){
+        estadosInalcancaveis.add(e);
+    }
+}
+public void emiteEstadoMorto(){
+    inicializaEstadoMorto();
+    estadosMortos.remove(estadoInicial);
+    for(Estado e: estadosFinais){
+        estadosMortos.remove(e);
+        }
+    for(Estado estado: estado){
+        for(String simbolo: alfabeto){
+       
+            if(estado.getTransition().get(simbolo) != null && estado.getTransition().get(simbolo) != estado){
+                    estadosMortos.remove(estado);}
+        }
+    }
+     for(Estado e: estadosInalcancaveis){
+        estadosInalcancaveis.remove(e);
+        }
+}
+
+
+
 
 }
