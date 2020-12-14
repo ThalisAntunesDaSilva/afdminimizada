@@ -13,8 +13,8 @@ public class TransitionControler {
     private List<Estado> estadosAlcancaveis;
     private List<Estado> estadosMortos;
     private List<Estado> estadosInalcancaveis;
-    
-      public TransitionControler() {
+
+    public TransitionControler() {
         estado = new ArrayList<>();
         alfabeto = new ArrayList<>();
         estadosFinais = new ArrayList<>();
@@ -22,7 +22,6 @@ public class TransitionControler {
         estadosMortos = new ArrayList<>();
         estadosInalcancaveis = new ArrayList<>();
     }
-
 
     public List<Estado> getEstado() {
         return estado;
@@ -56,7 +55,6 @@ public class TransitionControler {
         this.estadosFinais = estadosFinais;
     }
 
-  
     private void emiteEstadoInicial() {
         for (Estado estado : estado) {
             if (estado.isStart()) {
@@ -77,25 +75,20 @@ public class TransitionControler {
         emiteEstadoInicial();
         emiteEstadosFinais();
         Estado estadoAtual = null;
-        //i percorre de acordo com o tamanho da palavra
+        //i percorre as palavras do alfabeto
         for (int i = 0; i < palavra.length; i++) {
-            
-//Pega a as palavras do alfaabeto e coloca no estado inicial
-//se no alfabeto conter a palavra na posição que i estiver
+//Pega as palavras do alfaabeto e coloca no estado inicial
+//se no alfabeto conter a palavra e ela estiver no inicio = 0, então cada estado que ele pegar da lista e esse estado
+// for estado inicial o sistema reconhece que esse é o estado atual, onde inicia
             if (alfabeto.contains(palavra[i])) {
-                //se i estiver no início  estiver no inicio, 0
                 if (i == 0) {
-                    //se um estado for igual a estado criado
                     for (Estado estado : estado) {
-                        //se estado se iniciou,o estadoAtual é o estado criado  
                         if (estado.isStart()) {
                             estadoAtual = estado;
                         }
                     }
-                    
-                    //
-                    //se estado atual pegando a transicao Map<String, Estado> getTransition() pega a palavra for diferente de null 
-                    //então estado atual é igual a estado atual pegando transição pegando a palavra
+//Em transição o estado atual confere se tem um simbolo, entao ele transita para o proximo estado
+//que o usuário solicitou   
                     if (estadoAtual.getTransition().get(palavra[i]) != null) {
                         estadoAtual = estadoAtual.getTransition().get(palavra[i]);
                     } else {
@@ -106,60 +99,61 @@ public class TransitionControler {
                 return false;
             }
         }
-        //Se nessa transição o estado final conter o estado atual retorna true
+        //Para finalizar se durante a transição chegar em um estado final com o alfabeto solicitado ele aceita
         if (estadosFinais.contains(estadoAtual)) {
             return true;
-            
+
         } else {
             return false;
         }
-        
 
     }
-public void emiteEstadosAlcancaveis(){
-     inicializaEstadosInalcancaveis();   
-    for(Estado estadO: estado){
-            for(String simbolo: alfabeto){
-                if(estadO.getTransition().get(simbolo) != null){
-                  if(!estadosAlcancaveis.contains(estadO.getTransition().get(simbolo))){
-                    estadosAlcancaveis.add(estadO.getTransition().get(simbolo));
-               estadosInalcancaveis.remove(estadO.getTransition().get(simbolo));
-                
-                  }}
+
+    public void emiteEstadosAlcancaveis() {
+        inicializaEstadosInalcancaveis();
+        for (Estado estadO : estado) {
+            for (String simbolo : alfabeto) {
+                if (estadO.getTransition().get(simbolo) != null) {
+                    if (!estadosAlcancaveis.contains(estadO.getTransition().get(simbolo))) {
+                        estadosAlcancaveis.add(estadO.getTransition().get(simbolo));
+                        estadosInalcancaveis.remove(estadO.getTransition().get(simbolo));
+
+                    }
+                }
             }
         }
     }
-public void inicializaEstadoMorto(){
-    for(Estado e: estado){
-        estadosMortos.add(e);
-    }
-}
 
-public void inicializaEstadosInalcancaveis(){
-    
-    for(Estado e: estado){
-        estadosInalcancaveis.add(e);
-    }
-}
-public void emiteEstadoMorto(){
-    inicializaEstadoMorto();
-    estadosMortos.remove(estadoInicial);
-    for(Estado e: estadosFinais){
-        estadosMortos.remove(e);
-        }
-    for(Estado estado: estado){
-        for(String simbolo: alfabeto){
-       
-            if(estado.getTransition().get(simbolo) != null && estado.getTransition().get(simbolo) != estado){
-                    estadosMortos.remove(estado);}
+    public void inicializaEstadoMorto() {
+        for (Estado e : estado) {
+            estadosMortos.add(e);
         }
     }
-     for(Estado e: estadosInalcancaveis){
-        estadosInalcancaveis.remove(e);
+
+    public void inicializaEstadosInalcancaveis() {
+
+        for (Estado e : estado) {
+            estadosInalcancaveis.add(e);
         }
-}
+    }
 
+    public void emiteEstadoMorto() {
+        inicializaEstadoMorto();
+        estadosMortos.remove(estadoInicial);
+        for (Estado e : estadosFinais) {
+            estadosMortos.remove(e);
+        }
+        for (Estado estado : estado) {
+            for (String simbolo : alfabeto) {
 
-
+                if (estado.getTransition().get(simbolo) != null && estado.getTransition().get(simbolo) != estado) {
+                    estadosMortos.remove(estado);
+                }
+            }
+        }
+        for (Estado e : estadosInalcancaveis) {
+            estadosInalcancaveis.remove(e);
+        }
+    }
 
 }

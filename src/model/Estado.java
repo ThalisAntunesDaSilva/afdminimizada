@@ -20,6 +20,10 @@ public class Estado {
         id++;
         
     }
+    public Map<String, Estado> getTransition() {
+        return transition;
+    }
+
 
     public static int getId() {
         return id;
@@ -37,10 +41,7 @@ public class Estado {
         this.name = name;
     }
 
-    public Map<String, Estado> getTransition() {
-        return transition;
-    }
-
+  
     public void setTransition(Map<String, Estado> transition) {
         this.transition = transition;
     }
