@@ -108,9 +108,16 @@ public class TransitionControler {
         }
 
     }
+   //Adiociona estados incansaveis em uma lista
+    public void inicializaEstadosInalcansaveis() {
 
-    public void emiteEstadosAlcancaveis() {
-        inicializaEstadosInalcancaveis();
+        for (Estado e : estado) {
+            estadosInalcancaveis.add(e);
+        }
+    }
+   
+  public void emiteEstadosAlcancaveis() {
+        inicializaEstadosInalcansaveis();
         for (Estado estadO : estado) {
             for (String simbolo : alfabeto) {
                 if (estadO.getTransition().get(simbolo) != null) {
@@ -129,15 +136,7 @@ public class TransitionControler {
             estadosMortos.add(e);
         }
     }
-
-    public void inicializaEstadosInalcancaveis() {
-
-        for (Estado e : estado) {
-            estadosInalcancaveis.add(e);
-        }
-    }
-
-    public void emiteEstadoMorto() {
+        public void emiteEstadoMorto() {
         inicializaEstadoMorto();
         estadosMortos.remove(estadoInicial);
         for (Estado e : estadosFinais) {

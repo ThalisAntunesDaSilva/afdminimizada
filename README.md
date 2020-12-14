@@ -37,7 +37,25 @@ $ javac br/ufla/dcc/lfa/arquivo/*.java
 $ javac br/ufla/dcc/lfa/principal/*.java
 $ java br/ufla/dcc/lfa/principal/Main <descricao-afd> <arquivo-saida-tabela> <arquivo-saida-afd-minimizado> 
 ```
-Após isto, é só verificar os arquivos de saída.
+## Como Utilizar a aplicação
+1. Adicione um estado no botão Add estado
+2. Digite um símbolo e clique no botão Add símbolo
+3. Digite seu estado inicial e clique em ok
+4. Digite seus estados finais e clique em ok
+5. Digite seu estado atual 
+6. Digite o símbolo do alfabeto que ira transitar 
+7. Digite o estado em que o símbolo irá parar
+8. Salve a transição no botão Salvar transição 
+9. Assim salve o automato
+10. Agora ele está pronto para testar
+
+## Testando palavras
+1. Digite a palavra que deseja, tem mais de 1 caractere, deve-se digitar "," para separar.
+Ex. a,a,b,b
+2. E clique em Ok
+3. Você pode inserir um arquivo .txt colocando o caminho onde esse arquivo está inserido em sua máquina com a palavra que deseja, essa entrada está limitada a apenas uma.
+4. Clique em arquivo 
+5. O resultado irá aparecer em "resultado"
 
 
 
